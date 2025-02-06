@@ -1,0 +1,24 @@
+services:
+  backend:
+    build: 
+      context: .
+      dockerfile: DockerFile
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ./backend/static/responses:/app/static/responses
+      - .env:/app/.env
+
+  frontend:
+    image: nginx:alpine
+    ports:
+      - "5173:80"
+    volumes:
+      - ./frontend/index.html:/usr/share/nginx/html/index.html
+      - ./frontend/scripts/app.js:/usr/share/nginx/html/scripts/app.js
+      - ./frontend/styles/main.css:/usr/share/nginx/html/styles/main.css
+      - ./frontend/assets:/usr/share/nginx/html/assets
+    depends_on:
+      - backend

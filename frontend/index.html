@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi AI Assistant Pro</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="brand-container">
+                <div class="logo">
+                    <svg viewBox="0 0 24 24" class="brand-icon" fill="none" stroke="currentColor">
+                        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                        <line x1="12" y1="19" x2="12" y2="23"/>
+                        <line x1="8" y1="23" x2="16" y2="23"/>
+                    </svg>
+                    <h1>Hindi AI Assistant</h1>
+                </div>
+                <p class="tagline">Your intelligent Hindi conversation partner</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+
+                <div class="nav-section">
+                    <h3>Help & Info</h3>
+                    <div class="info-card">
+                        <h4>How to use</h4>
+                        <ul>
+                            <li>Click mic to start recording</li>
+                            <li>Speak naturally in Hindi</li>
+                            <li>Click again to stop</li>
+                            <li>Wait for AI response</li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="connection-status online">
+                    <span class="status-dot"></span>
+                    Connected to AI
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="chat-header">
+                <div class="chat-info">
+                    <h2>Your Chat</h2>
+                    <span class="chat-status">AI is ready</span>
+                </div>
+            </header>
+
+            <div class="chat-container" id="messagesContainer">
+                <div class="message ai welcome-message">
+                    <div class="message-content">
+                        <div class="message-avatar">AI</div>
+                        <div class="message-bubble">
+                            <p>नमस्ते! मैं आपकी कैसे मदद कर सकता हूं?</p>
+                            <span class="message-time">Just now</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div class="input-container">
+                    <button id="recordButton" class="record-button" title="Start/Stop Recording">
+                        <svg class="mic-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                            <line x1="12" y1="19" x2="12" y2="23"/>
+                            <line x1="8" y1="23" x2="16" y2="23"/>
+                        </svg>
+                        <span class="record-label">Start Recording</span>
+                    </button>
+                    <div id="recordingStatus" class="recording-status">
+                        <div class="wave-visualizer">
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="loadingIndicator" class="loading-indicator hidden">
+        <div class="loading-content">
+            <div class="spinner-ring"></div>
+            <p>Processing your message...</p>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="errorToast" class="toast error hidden">
+        <div class="toast-content">
+            <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <span class="toast-message"></span>
+            <button class="toast-close">×</button>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>

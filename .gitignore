@@ -1,0 +1,82 @@
+# Python gitignore
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+.env/
+.venv/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment Variables
+.env
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+*.log
+logs/
+log/
+
+# Audio and temporary files
+*.wav
+*.mp3
+static/responses/*.mp3
+*.tmp
+*.bak
+
+# Frontend build artifacts
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Dependency directories
+backend/lib/
+backend/bin/
+backend/include/
+backend/lib64/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Docker
+.docker
+
+# Miscellaneous
+.history/
+.cache/
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# Project Specific Ignores
+secrets/
+backup/
+temp/

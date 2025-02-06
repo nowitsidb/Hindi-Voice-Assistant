@@ -1,0 +1,41 @@
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim-buster
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Install system dependencies required for Python packages and audio processing
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    ffmpeg \
+    libsndfile1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the requirements file into the container
+COPY backend/requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Create static directory for audio responses
+RUN mkdir -p /app/static/responses
+
+# Copy the backend files
+COPY backend/main.py /app/
+COPY backend/static/responses /app/static/responses
+
+# Copy frontend files for serving
+COPY frontend /app/frontend
+
+# Expose the port the app runs on
+EXPOSE 8000
+
+# Create .env file with a placeholder (replace with actual key when running)
+RUN echo "OPENAI_API_KEY=your_openai_api_key_here" > .env
+
+# Use uvicorn to run the FastAPI application
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
